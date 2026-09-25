@@ -13,71 +13,103 @@
         margin: 0;
         min-height: 100vh;
 
-        /* Background image */
+        /* Background */
         background-image: url("Bg.jpeg");
         background-size: cover;
         background-position: center;
         background-repeat: no-repeat;
         background-attachment: fixed;
+
+        /* Main text */
+        color: white;
     }
 
-    /* Top-left menu */
+    /* Top-left buttons */
     .menu {
         position: fixed;
         top: 15px;
         left: 15px;
         z-index: 1000;
+
         display: flex;
         gap: 8px;
     }
 
     .menu button {
-        margin: 0;
         padding: 9px 12px;
         font-size: 14px;
+        border: none;
+        border-radius: 6px;
         cursor: pointer;
     }
 
+    /* Main title */
     h1 {
         font-size: 32px;
-        margin-top: 50px;
+        color: white;
+        margin-top: 60px;
     }
 
+    /* Roll input */
     input {
         font-size: 22px;
         padding: 12px;
         width: 80%;
         max-width: 300px;
         text-align: center;
+
+        color: black;
+        background: white;
+
+        border: none;
+        border-radius: 8px;
     }
 
+    /* Find button */
     .find-button {
         display: block;
         margin: 20px auto;
         padding: 12px 40px;
         font-size: 20px;
+
         cursor: pointer;
+
+        border: none;
+        border-radius: 8px;
     }
 
+    /* Result */
     #result {
         font-size: 28px;
         margin-top: 30px;
         font-weight: bold;
+        color: white;
+
+        text-shadow: 2px 2px 5px black;
     }
 
-    /* Information box */
+    /* Information popup */
     .info-box {
         display: none;
+
         position: fixed;
         top: 70px;
         left: 15px;
+
         width: 300px;
         max-width: calc(100% - 30px);
+
         background: white;
+        color: black;
+
         padding: 20px;
+
         border-radius: 12px;
-        box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+
+        box-shadow: 0 5px 20px rgba(0, 0, 0, 0.4);
+
         text-align: left;
+
         z-index: 999;
     }
 
@@ -88,43 +120,69 @@
 
     .close-button {
         display: block;
+
         margin: 15px auto 0;
+
         padding: 8px 20px;
+
         cursor: pointer;
+
+        border: none;
+        border-radius: 6px;
     }
 </style>
 
-</head><body><!-- Top-left buttons -->
+</head><body><!-- Top-left menu -->
 <div class="menu">
-    <button onclick="showDescription()">Description</button>
-    <button onclick="showDeveloper()">About Developer</button>
+
+    <button onclick="showDescription()">
+        Description
+    </button>
+
+    <button onclick="showDeveloper()">
+        About Developer
+    </button>
+
 </div>
 
-<!-- Description -->
+
+<!-- Description box -->
 <div id="descriptionBox" class="info-box">
+
     <h2>Description</h2>
 
     <p>
-        This is a website for finding indivituals nicknames.Enter your roll in the box and then it'll find your nickname.
+        This is a website for finding indivituals nickname by entering their roll.
     </p>
 
-    <button class="close-button" onclick="closeInfo()">Close</button>
+    <button class="close-button" onclick="closeInfo()">
+        Close
+    </button>
+
 </div>
 
-<!-- About Developer -->
+
+<!-- About Developer box -->
 <div id="developerBox" class="info-box">
+
     <h2>About Developer</h2>
 
     <p>
-      Name:Md.Sohan
-      Class:10(Sci)
-      GIMS(BOYS)
+        Name:Md Sohan
+        Class:10(SCI)
+        GIMS(BOYS)
     </p>
 
-    <button class="close-button" onclick="closeInfo()">Close</button>
+    <button class="close-button" onclick="closeInfo()">
+        Close
+    </button>
+
 </div>
 
+
+<!-- Main website -->
 <h1>Roll Finder</h1>
+
 
 <input
     type="number"
@@ -134,12 +192,24 @@
     max="40"
 >
 
-<button class="find-button" onclick="findName()">FIND</button>
 
-<div id="result">Result will appear here</div>
+<button
+    class="find-button"
+    onclick="findName()"
+>
+    FIND
+</button>
+
+
+<div id="result">
+    Result will appear here
+</div>
+
 
 <script>
+
     const names = {
+
         1: "Kangla",
         2: "Hatiujjaman",
         3: "Protection",
@@ -180,33 +250,66 @@
         38: "Gavi",
         39: "Nati",
         40: "DBr Pola"
+
     };
 
+
     function findName() {
-        const roll = document.getElementById("roll").value;
-        const result = document.getElementById("result");
+
+        const roll =
+            document.getElementById("roll").value;
+
+        const result =
+            document.getElementById("result");
+
 
         if (names[roll]) {
-            result.textContent = names[roll];
+
+            result.textContent =
+                names[roll];
+
         } else {
-            result.textContent = "Roll not found";
+
+            result.textContent =
+                "Roll not found";
+
         }
+
     }
+
 
     function showDescription() {
-        document.getElementById("descriptionBox").style.display = "block";
-        document.getElementById("developerBox").style.display = "none";
+
+        document.getElementById("descriptionBox")
+            .style.display = "block";
+
+        document.getElementById("developerBox")
+            .style.display = "none";
+
     }
+
 
     function showDeveloper() {
-        document.getElementById("developerBox").style.display = "block";
-        document.getElementById("descriptionBox").style.display = "none";
+
+        document.getElementById("developerBox")
+            .style.display = "block";
+
+        document.getElementById("descriptionBox")
+            .style.display = "none";
+
     }
 
+
     function closeInfo() {
-        document.getElementById("descriptionBox").style.display = "none";
-        document.getElementById("developerBox").style.display = "none";
+
+        document.getElementById("descriptionBox")
+            .style.display = "none";
+
+        document.getElementById("developerBox")
+            .style.display = "none";
+
     }
+
 </script>
 
 </body>
