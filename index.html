@@ -1,0 +1,213 @@
+<!DOCTYPE html><html>
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Roll Finder</title><style>
+    * {
+        box-sizing: border-box;
+    }
+
+    body {
+        font-family: Arial, sans-serif;
+        text-align: center;
+        padding: 40px 20px;
+        margin: 0;
+        min-height: 100vh;
+
+        /* Background image */
+        background-image: url("Bg.jpeg");
+        background-size: cover;
+        background-position: center;
+        background-repeat: no-repeat;
+        background-attachment: fixed;
+    }
+
+    /* Top-left menu */
+    .menu {
+        position: fixed;
+        top: 15px;
+        left: 15px;
+        z-index: 1000;
+        display: flex;
+        gap: 8px;
+    }
+
+    .menu button {
+        margin: 0;
+        padding: 9px 12px;
+        font-size: 14px;
+        cursor: pointer;
+    }
+
+    h1 {
+        font-size: 32px;
+        margin-top: 50px;
+    }
+
+    input {
+        font-size: 22px;
+        padding: 12px;
+        width: 80%;
+        max-width: 300px;
+        text-align: center;
+    }
+
+    .find-button {
+        display: block;
+        margin: 20px auto;
+        padding: 12px 40px;
+        font-size: 20px;
+        cursor: pointer;
+    }
+
+    #result {
+        font-size: 28px;
+        margin-top: 30px;
+        font-weight: bold;
+    }
+
+    /* Information box */
+    .info-box {
+        display: none;
+        position: fixed;
+        top: 70px;
+        left: 15px;
+        width: 300px;
+        max-width: calc(100% - 30px);
+        background: white;
+        padding: 20px;
+        border-radius: 12px;
+        box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+        text-align: left;
+        z-index: 999;
+    }
+
+    .info-box h2 {
+        margin-top: 0;
+        text-align: center;
+    }
+
+    .close-button {
+        display: block;
+        margin: 15px auto 0;
+        padding: 8px 20px;
+        cursor: pointer;
+    }
+</style>
+
+</head><body><!-- Top-left buttons -->
+<div class="menu">
+    <button onclick="showDescription()">Description</button>
+    <button onclick="showDeveloper()">About Developer</button>
+</div>
+
+<!-- Description -->
+<div id="descriptionBox" class="info-box">
+    <h2>Description</h2>
+
+    <p>
+        This is a website for finding indivituals nicknames.Enter your roll in the box and then it'll find your nickname.
+    </p>
+
+    <button class="close-button" onclick="closeInfo()">Close</button>
+</div>
+
+<!-- About Developer -->
+<div id="developerBox" class="info-box">
+    <h2>About Developer</h2>
+
+    <p>
+      Name:Md.Sohan
+      Class:10(Sci)
+      GIMS(BOYS)
+    </p>
+
+    <button class="close-button" onclick="closeInfo()">Close</button>
+</div>
+
+<h1>Roll Finder</h1>
+
+<input
+    type="number"
+    id="roll"
+    placeholder="Enter your roll"
+    min="1"
+    max="40"
+>
+
+<button class="find-button" onclick="findName()">FIND</button>
+
+<div id="result">Result will appear here</div>
+
+<script>
+    const names = {
+        1: "Kangla",
+        2: "Hatiujjaman",
+        3: "Protection",
+        4: "Darwoan",
+        5: "Gay",
+        6: "Halim bot",
+        7: "Kamer bady",
+        8: "Russian",
+        9: "Roton gp",
+        10: "Rohinga",
+        11: "Crush Boy",
+        12: "Tommy",
+        13: "Niga",
+        14: "Dudu Shagor",
+        15: "Shajjader Bou-1",
+        16: "Italian",
+        17: "Dataillar vai",
+        18: "18 joner bou",
+        19: "17 ar bou",
+        20: "Rajur Bou",
+        21: "Chahi",
+        22: "Hisaber bou",
+        23: "Shajjader bou-2",
+        24: "Dalia Baby",
+        25: "Dumba",
+        26: "Milar jamaie",
+        27: "Murgi",
+        28: "🦷",
+        29: "🧠",
+        30: "🐄",
+        31: "👴 Buiera Bulbul",
+        32: "🐻",
+        33: "Chill Guy",
+        34: "🌲 Jungle",
+        35: "Robiuler bou",
+        36: "Gondho",
+        37: "Chor",
+        38: "Gavi",
+        39: "Nati",
+        40: "DBr Pola"
+    };
+
+    function findName() {
+        const roll = document.getElementById("roll").value;
+        const result = document.getElementById("result");
+
+        if (names[roll]) {
+            result.textContent = names[roll];
+        } else {
+            result.textContent = "Roll not found";
+        }
+    }
+
+    function showDescription() {
+        document.getElementById("descriptionBox").style.display = "block";
+        document.getElementById("developerBox").style.display = "none";
+    }
+
+    function showDeveloper() {
+        document.getElementById("developerBox").style.display = "block";
+        document.getElementById("descriptionBox").style.display = "none";
+    }
+
+    function closeInfo() {
+        document.getElementById("descriptionBox").style.display = "none";
+        document.getElementById("developerBox").style.display = "none";
+    }
+</script>
+
+</body>
+</html>
